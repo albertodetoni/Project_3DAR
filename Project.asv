@@ -40,19 +40,9 @@ for i = 1:numel(imdsTraining.Files) % for each image
 end
 
 HiddenLayerSize=5;
-% autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
-%     'ScaleData', true, ...
-%     'UseGPU', true, ...
-%     'SparsityRegularization',1.6);
-
-autoenc = trainAutoencoder(SURF_features',HiddenLayerSize,...
-        'EncoderTransferFunction','satlin',...
-        'DecoderTransferFunction','purelin',...
-        'L2WeightRegularization',0.01,...
-        'SparsityRegularization',4,...
-        'SparsityProportion',0.10, ...
-        'ScaleData', true, ...
-        'UseGPU',true);
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
+    'ScaleData', true, ...
+    'UseGPU', true);
 
 %%
 clc;
@@ -79,18 +69,35 @@ Y_test = predict(autoenc, SURF_features_test')';
 
 surf_feat_number = [0; surf_feat_number];
 for i=1:length(points_test)-1
+%     points_test{i}.Scale = single(Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 1));
+%     points_test{i}.SignOfLaplacian = int8(Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 2));
+%     points_test{i}.Orientation = single(Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 3));
+%     points_test{i}.Location = single(Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 4:5));
+%     points_test{i}.Metric = single(Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 6));
 
-    Scale = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 1);
-    SignOfLaplacian = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 2);
-    Orientation = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 3);
+%     points_test{i}.Scale = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 1);
+%     points_test{i}.SignOfLaplacian = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 2);
+%     points_test{i}.Orientation = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 3);
+%     points_test{i}.Location = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 4:5);
+%     points_test{i}.Metric = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 6);
+
+%     Scale = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 1);
+%     points_test{i}.Scale = single(Scale);
+%     
+%     SignOfLaplacian = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 2);
+%     points_test{i}.SignOfLaplacian = int8(SignOfLaplacian);
+%     
+%     Orientation = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 3);
+%     points_test{i}.Orientation = single(Orientation);
+    
     Location = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 4:5);
-    Metric = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 6);
+%     points_test{i}.Location = single(Location);
+%     
+%     Metric = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 6);
+%     points_test{i}.Metric = single(Metric);
 
-    points_autoenc{i} = SURFPoints(Location, 'Scale', single(Scale), ...
-        'SignOfLaplacian', int8(SignOfLaplacian), ...
-        'Orientation', single(Orientation), ...
-        'Metric', single(Metric));
+    points_autoenc{i} = SURFPoints(Location);
     
     imshow(images_test{i}); hold on;
-    plot(points_autoenc{i}); hold off;
+    plot(points_test{i}); hold off;
 end

@@ -39,52 +39,38 @@ for i = 1:numel(imdsTraining.Files) % for each image
 
 end
 
-HiddenLayerSize=5;
-% autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
-%     'ScaleData', true, ...
-%     'UseGPU', true, ...
-%     'SparsityRegularization',1.6);
+HiddenLayerSize=4;
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
+    'ScaleData', true, ...
+    'UseGPU', true, ...
+    'SparsityRegularization',1.6);
 
-autoenc = trainAutoencoder(SURF_features',HiddenLayerSize,...
-        'EncoderTransferFunction','satlin',...
-        'DecoderTransferFunction','purelin',...
-        'L2WeightRegularization',0.01,...
-        'SparsityRegularization',4,...
-        'SparsityProportion',0.10, ...
-        'ScaleData', true, ...
-        'UseGPU',true);
 
 %%
 clc;
 
-SURF_features_test=[]; surf_feat_number=[];
 for i = 1:numel(imdsTest.Files)
     I = rgb2gray(readimage(imdsTraining, i));
     
     images_test{i} = I;  %store images in the cell array
     points_test{i} = detectSURFFeatures(images_test{i});
+    
     A =[double(points_test{i}.Scale), ...
         double(points_test{i}.SignOfLaplacian), ...
         double(points_test{i}.Orientation), ...
         double(points_test{i}.Location), ...
         double(points_test{i}.Metric)];
     
-    SURF_features_test = [SURF_features_test; A];
-    surf_feat_number = [surf_feat_number; length(A)];
+    Y_test = predict(autoenc, A')';
     
-end
-
-Y_test = predict(autoenc, SURF_features_test')';
-
-
-surf_feat_number = [0; surf_feat_number];
-for i=1:length(points_test)-1
-
-    Scale = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 1);
-    SignOfLaplacian = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 2);
-    Orientation = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 3);
-    Location = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 4:5);
-    Metric = Y_test(surf_feat_number(i)+1 : surf_feat_number(i+1), 6);
+    initial = 0+1;
+    final = length(Y_test);
+    
+    Scale = Y_test(initial:final , 1);
+    SignOfLaplacian = Y_test(initial:final, 2);
+    Orientation = Y_test(initial:final, 3);
+    Location = Y_test(initial:final, 4:5);
+    Metric = Y_test(initial:final, 6);
 
     points_autoenc{i} = SURFPoints(Location, 'Scale', single(Scale), ...
         'SignOfLaplacian', int8(SignOfLaplacian), ...
@@ -93,4 +79,5 @@ for i=1:length(points_test)-1
     
     imshow(images_test{i}); hold on;
     plot(points_autoenc{i}); hold off;
+    
 end

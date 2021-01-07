@@ -102,8 +102,8 @@ end
 
 delete('matchings/tiso/*.txt'); delete('matchings/fountain/*.txt');
 
-for i=1:length(features_tiso)
-    for j=1:length(features_tiso)
+for i=1:length(features_tiso)-1
+    for j=i+1:length(features_tiso)
         if j~=i
             matchings = matchFeatures(features_tiso{i},features_tiso{j}, 'Method', 'Approximate');
             
@@ -129,8 +129,8 @@ for i=1:length(features_tiso)
 end
 
 
-for i=1:length(features_fountain)
-    for j=1:length(features_fountain)
+for i=1:length(features_fountain)-1
+    for j=i+1:length(features_fountain)
         if j~=i
             matchings = matchFeatures(features_fountain{i},features_fountain{j}, 'Method', 'Approximate');
             

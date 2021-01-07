@@ -107,7 +107,7 @@ for i=1:length(features_tiso)-1
         if j~=i
             matchings = matchFeatures(features_tiso{i},features_tiso{j}, 'Method', 'Approximate');
             
-            [~,name_from,ext_from] = fileparts(string(imdsTest.Files{i+11}));
+            [~,name_from,ext_from] = fileparts(string(imdsTest.Files{i+11})); %+11 because the firsts are the 11 fountain images, then comes tiso
             [~,name_to,ext_to] = fileparts(string(imdsTest.Files{j+11}));
             
             filePath = 'matchings/tiso/matchings.txt';

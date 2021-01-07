@@ -96,12 +96,12 @@ for i = 1:numel(imdsTest.Files)
     
     [~,name,ext] = fileparts(string(imdsTest.Files{i}));
 
-    filePath = 'features/' + string(name)+string(ext) +'.txt';
-    fileID = fopen(filePath, 'w');
+    file
+    fileID = fopen('features/' + string(name)+string(ext) +'.txt', 'w');
     fprintf(fileID, string(length(A))+' 128\n');
     fclose(fileID);
     
-    dlmwrite(filePath, A, '-append');
+    dlmwrite('features/' + string(name)+string(ext) +'.txt', A, '-append');
     
     
     

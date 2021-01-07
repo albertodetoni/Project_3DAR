@@ -82,8 +82,11 @@ for i = 1:numel(imdsTest.Files)
 
     if contains(pth,'fountain','IgnoreCase',true)
         filePath = 'features/fountain/' + string(name)+string(ext) +'.txt';
+        [features_fountain{i}, ~] = extractFeatures(images_test{i}, points_test{i});
     elseif contains(pth,'tiso','IgnoreCase',true)
         filePath = 'features/tiso/' + string(name)+string(ext) +'.txt';
+        [features_tiso{i}, ~] = extractFeatures(images_test{i}, points_test{i});
+        features_tiso = features_tiso(~cellfun('isempty',features_tiso));
     end
     
     fileID = fopen(filePath, 'w');
@@ -91,5 +94,63 @@ for i = 1:numel(imdsTest.Files)
     fclose(fileID);
     
     writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
-    
+       
+end
+
+
+%% MATCHINGS
+
+delete('matchings/tiso/*.txt'); delete('matchings/fountain/*.txt');
+
+for i=1:length(features_tiso)
+    for j=1:length(features_tiso)
+        if j~=i
+            matchings = matchFeatures(features_tiso{i},features_tiso{j}, 'Method', 'Approximate');
+            
+            [~,name_from,ext_from] = fileparts(string(imdsTest.Files{i+11}));
+            [~,name_to,ext_to] = fileparts(string(imdsTest.Files{j+11}));
+            
+            filePath = 'matchings/tiso/matchings.txt';
+            
+            title = string(name_from)+string(ext_from) +' '+ string(name_to)+string(ext_to);
+            
+            fileID = fopen(filePath, 'a');
+            fprintf(fileID, title);
+            fclose(fileID);
+
+            writematrix(matchings, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
+            
+            fileID = fopen(filePath, 'a');
+            fprintf(fileID, '\n');
+            fclose(fileID);
+            
+        end
+    end
+end
+
+
+for i=1:length(features_fountain)
+    for j=1:length(features_fountain)
+        if j~=i
+            matchings = matchFeatures(features_fountain{i},features_fountain{j}, 'Method', 'Approximate');
+            
+            [~,name_from,ext_from] = fileparts(string(imdsTest.Files{i}));
+            [~,name_to,ext_to] = fileparts(string(imdsTest.Files{j}));
+            
+            filePath = 'matchings/fountain/matchings.txt';
+            
+            title = string(name_from)+string(ext_from) +' '+ string(name_to)+string(ext_to);
+            
+            fileID = fopen(filePath, 'a');
+            fprintf(fileID, title);
+            fclose(fileID);
+
+            writematrix(matchings, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
+            
+            fileID = fopen(filePath, 'a');
+            fprintf(fileID, '\n');
+            fclose(fileID);
+            
+        end
+    end
 end

@@ -86,6 +86,9 @@ for i = 1:numel(imdsTest.Files)
     imshow(images_test{i}); hold on;
     plot(points_autoenc{i}); hold off;
     
+    fid = fopen('features/' + string(name)+string(ext) +'.txt', 'wt');
+    fprintf(fid, 'Ciao ciao\n');
+    fclose(fid);
     
     A = [points_autoenc{i}.Location, ...
         points_autoenc{i}.Scale, points_autoenc{i}.Orientation];
@@ -94,5 +97,7 @@ for i = 1:numel(imdsTest.Files)
     end
     [~,name,ext] = fileparts(string(imdsTest.Files{i}));
     dlmwrite('features/' + string(name)+string(ext) +'.txt', A);
+    
+    
     
 end

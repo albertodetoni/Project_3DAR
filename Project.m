@@ -1,28 +1,16 @@
+%% TRAINING
+
 clear all; close all; clc;
 
 imdsTraining = imageDatastore(...
-    'Camera_Calibration\Training', 'IncludeSubfolders', 1);
+    'images\Training', 'IncludeSubfolders', 1);
 
 imdsTest = imageDatastore(...
-    'Camera_Calibration\Testing', 'IncludeSubfolders', 1);
+    'images\Testing', 'IncludeSubfolders', 1);
 
-% dim=250; % dimension all the images will have
 SURF_features=[];
 for i = 1:numel(imdsTraining.Files) % for each image
     I = rgb2gray(readimage(imdsTraining, i)); % store and convert to gray the image
-    
-%     if size(I,1)>size(I,2) % padding the images to be all squares
-%         I = imresize(I, [dim NaN]);
-%         longdim = size(I,2);
-%         I = padarray(I, [0 floor((dim-longdim)/2)], 0, 'pre');
-%         I = padarray(I, [0 ceil((dim-longdim)/2)], 0, 'post');
-%     else
-%         I = imresize(I, [NaN dim]);
-%         longdim = size(I,1);
-%         I = padarray(I, [floor((dim-longdim)/2) 0], 0, 'pre');
-%         I = padarray(I, [ceil((dim-longdim)/2) 0], 0, 'post');
-%     end
-    
     
     images{i} = I;  %store images in the cell array
     
@@ -46,15 +34,16 @@ autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
     'SparsityRegularization',1.6);
 
 save('Workspace_autoenc_trained.mat');
-%%
+
+%% TESTING
 clc; clear all;
 
 load('Workspace_autoenc_trained.mat')
 
-delete('features\*.txt');
+delete('features/tiso/*.txt'); delete('features/fountain/*.txt');
 
 for i = 1:numel(imdsTest.Files)
-    I = rgb2gray(readimage(imdsTraining, i));
+    I = rgb2gray(readimage(imdsTest, i));
     
     images_test{i} = I;  %store images in the cell array
     points_test{i} = detectSURFFeatures(images_test{i});
@@ -76,17 +65,12 @@ for i = 1:numel(imdsTest.Files)
     Location = Y_test(initial:final, 4:5);
     Metric = Y_test(initial:final, 6);
 
-%     points_autoenc{i} = SURFPoints(Location, ...
-%         'Scale', single(Scale), ...
-%         'SignOfLaplacian', int8(SignOfLaplacian), ...
-%         'Orientation', single(Orientation), ...
-%         'Metric', single(Metric));
     points_autoenc{i} = SURFPoints(Location, ...
         'Scale', single(Scale), ...
         'Orientation', single(Orientation));
     
-%     imshow(images_test{i}); hold on;
-%     plot(points_autoenc{i}); hold off;
+    imshow(images_test{i}); hold on;
+    plot(points_autoenc{i}); hold off;
     
     A = [points_autoenc{i}.Location, ...
         points_autoenc{i}.Scale, points_autoenc{i}.Orientation];
@@ -94,15 +78,18 @@ for i = 1:numel(imdsTest.Files)
         A = [A, zeros(length(A),1)];
     end
     
-    [~,name,ext] = fileparts(string(imdsTest.Files{i}));
+    [pth,name,ext] = fileparts(string(imdsTest.Files{i}));
 
-    filePath = 'features/' + string(name)+string(ext) +'.txt';
+    if contains(pth,'fountain','IgnoreCase',true)
+        filePath = 'features/fountain/' + string(name)+string(ext) +'.txt';
+    elseif contains(pth,'tiso','IgnoreCase',true)
+        filePath = 'features/tiso/' + string(name)+string(ext) +'.txt';
+    end
+    
     fileID = fopen(filePath, 'w');
     fprintf(fileID, string(length(A))+' 128\n');
     fclose(fileID);
     
-    dlmwrite(filePath, A, '-append');
-    
-    
+    writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
     
 end

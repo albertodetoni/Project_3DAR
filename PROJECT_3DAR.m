@@ -30,8 +30,7 @@ end
 HiddenLayerSize=4;
 autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
     'ScaleData', true, ...
-    'UseGPU', true, ...
-    'SparsityRegularization',1.6);
+    'UseGPU', true);
 
 save('Workspace_autoenc_trained.mat');
 
@@ -93,7 +92,7 @@ function features = FEATURES (imds, autoenc)
         A =[double(points_autoenc{i}.Scale), ...
             double(points_autoenc{i}.Orientation), ...
             double(points_autoenc{i}.Location)];
-        for j=1:128-4
+        for j=1:128
             A = [A, zeros(length(A),1)];
         end
 

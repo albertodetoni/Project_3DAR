@@ -10,7 +10,7 @@ imdsTest = imageDatastore(...
 
 SURF_features=[];
 for i = 1:numel(imdsTraining.Files) % for each image
-    I = rgb2gray(readimage(imdsTraining, i)); % store and convert to gray the image
+    I = rgb2gray(readimage(imdsTraining, i)); % convert to gray the image
     
     images{i} = I;  %store images in the cell array
     
@@ -37,6 +37,7 @@ save('Workspace_autoenc_trained.mat');
 
 %% TESTING
 %% FEATURE EXTRACTION
+
 clc; clear all;
 load('Workspace_autoenc_trained.mat')
 
@@ -50,6 +51,7 @@ imdsTiso = imageDatastore(...
 features_fountain = FEATURES(imdsFountain, autoenc);
 %features_tiso = FEATURES(imdsTiso, autoenc);
 close all;
+
 %% MATCHINGS
 clc;
 
@@ -91,7 +93,7 @@ function features = FEATURES (imds, autoenc)
         A =[double(points_autoenc{i}.Scale), ...
             double(points_autoenc{i}.Orientation), ...
             double(points_autoenc{i}.Location)];
-        for j=1:128
+        for j=1:128-4
             A = [A, zeros(length(A),1)];
         end
 

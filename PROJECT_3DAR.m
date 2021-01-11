@@ -14,23 +14,24 @@ for i = 1:numel(imdsTraining.Files) % for each image
     
     images{i} = I;  %store images in the cell array
     
-    points_training{i} = detectSURFFeatures(images{i});
+    [points_training{i}, ~] = extractFeatures(images{i}, detectSURFFeatures(images{i}, 'MetricThreshold', 200, 'NumOctaves', 4));
     
 %     imshow(images{i}); hold on;
 %     plot(points{i}); hold off;
     
-    A = [double(points_training{i}.Scale), ...
-        double(points_training{i}.Orientation), ...
-        double(points_training{i}.Location)];
+    A = double(points_training{i});
+%     A = [double(points_training{i}.Scale), ...
+%         double(points_training{i}.Orientation), ...
+%         double(points_training{i}.Location)];
     
     SURF_features = [SURF_features; A];
 
 end
 
-HiddenLayerSize=4;
+HiddenLayerSize=8;
 autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
-    'ScaleData', true, ...
     'UseGPU', true);
+%    'ScaleData', true);
 
 save('Workspace_autoenc_trained.mat');
 
@@ -68,30 +69,32 @@ function features = FEATURES (imds, autoenc)
         I = rgb2gray(readimage(imds, i));
 
         images{i} = I;  %store images in the cell array
-        points{i} = detectSURFFeatures(images{i});
+        points_features{i} = detectSURFFeatures(images{i}, 'MetricThreshold', 200, 'NumOctaves', 4);
+        points{i} = extractFeatures(images{i}, points_features{i});
 
-        A =[double(points{i}.Scale), ...
-            double(points{i}.Orientation), ...
-            double(points{i}.Location)];
+        A=double(points{i});
+%         A =[double(points{i}.Scale), ...
+%             double(points{i}.Orientation), ...
+%             double(points{i}.Location)];
 
         Y_test = predict(autoenc, A')'; % AUTOENCODER
 
-        Scale = Y_test(:, 1);
-        Orientation = Y_test(:, 2);
-        Location = Y_test(:, 3:4);
-
-        points_autoenc{i} = SURFPoints(Location, ...
-            'Scale', single(Scale), ...
-            'Orientation', single(Orientation));
-        
-        %plot of the images%%%
-        imshow(images{i}); hold on;
-        plot(points_autoenc{i}); hold off;
-        %%%%%%%%%%%%%%%%%%%%%%
-        
-        A =[double(points_autoenc{i}.Scale), ...
-            double(points_autoenc{i}.Orientation), ...
-            double(points_autoenc{i}.Location)];
+%         Scale = Y_test(:, 1);
+%         Orientation = Y_test(:, 2);
+%         Location = Y_test(:, 3:4);
+% 
+%         points_autoenc{i} = SURFPoints(Location, ...
+%             'Scale', single(Scale), ...
+%             'Orientation', single(Orientation));
+%         
+%         %plot of the images%%%
+%         imshow(images{i}); hold on;
+%         plot(points_autoenc{i}); hold off;
+%         %%%%%%%%%%%%%%%%%%%%%%
+%         
+        A =[double(points_features{i}.Location), ...
+            double(points_features{i}.Scale), ...
+            double(points_features{i}.Orientation)];
         for j=1:128
             A = [A, zeros(length(A),1)];
         end
@@ -100,24 +103,18 @@ function features = FEATURES (imds, autoenc)
 
         if contains(pth,'fountain','IgnoreCase',true)
             filePath = 'features/fountain/' + string(name)+string(ext) +'.txt';
-            [features{i}, ~] = extractFeatures(images{i}, points_autoenc{i});
-            features = features(~cellfun('isempty',features));
             
         elseif contains(pth,'tiso','IgnoreCase',true)
             filePath = 'features/tiso/' + string(name)+string(ext) +'.txt';
-            [features{i}, ~] = extractFeatures(images{i}, points_autoenc{i});
-            features = features(~cellfun('isempty',features));
             
         elseif contains(pth,'portello','IgnoreCase',true)
             filePath = 'features/portello/' + string(name)+string(ext) +'.txt';
-            [features{i}, ~] = extractFeatures(images{i}, points_autoenc{i});
-            features = features(~cellfun('isempty',features));
             
         elseif contains(pth,'castle','IgnoreCase',true)
             filePath = 'features/castle/' + string(name)+string(ext) +'.txt';
-            [features{i}, ~] = extractFeatures(images{i}, points_autoenc{i});
-            features = features(~cellfun('isempty',features));
         end
+        features{i} = Y_test;
+        features = features(~cellfun('isempty',features));
 
         fileID = fopen(filePath, 'w');
         fprintf(fileID, string(length(A))+' 128\n');
@@ -137,7 +134,7 @@ function MATCHINGS (imds, features)
     for i=1:length(features)-1
         for j=i+1:length(features)
             if j~=i
-                matchings = matchFeatures(features{i},features{j}, 'Method', 'Approximate');
+                matchings = matchFeatures(features{i},features{j}, 'Method', 'Approximate', 'MaxRatio', 0.8); %0.8 soglia
 
                 [pth,name_from,ext_from] = fileparts(string(imds.Files{i}));
                 [~,name_to,ext_to] = fileparts(string(imds.Files{j}));

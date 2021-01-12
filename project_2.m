@@ -23,7 +23,7 @@ end
 
 close all;
 HiddenLayerSize = 4;
-autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, 'UseGPU', true);
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize);
 
 save('Workspace_autoenc_trained.mat');
 
@@ -40,15 +40,15 @@ imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
 
-features_fountain = FEATURES(imdsFountain, autoenc);
-%features_tiso = FEATURES(imdsTiso, autoenc);
+%features_fountain = FEATURES(imdsFountain, autoenc);
+features_tiso = FEATURES(imdsTiso, autoenc);
 close all;
 
-%% MATCHINGS
+% MATCHINGS
 clc;
 
-MATCHINGS(imdsFountain, features_fountain);
-%MATCHINGS(imdsTiso, features_fountain);
+%MATCHINGS(imdsFountain, features_fountain);
+MATCHINGS(imdsTiso, features_tiso);
 
 
 load splat
@@ -99,14 +99,15 @@ function features = FEATURES (imds, autoenc)
         end
         
         features{i} = single(Y_test);
-        features = features(~cellfun('isempty',features));
+        %features = features(~cellfun('isempty',features));
 
         fileID = fopen(filePath, 'w');
         fprintf(fileID, string(length(A))+' 128\n');
         fclose(fileID);
 
         writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
-
+        
+        features{i} = descriptors{i};
     end
 end
 
@@ -117,14 +118,14 @@ end
 
 function MATCHINGS (imds, features)
 
-    delete('matchings/tiso/*.txt'); delete('matchings/fountain/*.txt');
-    delete('matchings/portello/*.txt'); delete('matchings/castle/*.txt');         
+    delete('matchings/tiso/matchings.txt'); delete('matchings/fountain/matchings.txt');
+    delete('matchings/portello/matchings.txt'); delete('matchings/castle/matchings.txt');         
     
     for i=1:length(features)-1
         for j=i+1:length(features)
             
             matchings = matchFeatures(features{i}, features{j}, ...
-                'MaxRatio', .7, 'Unique',  true, 'Method', 'Approximate')-1;
+                'MaxRatio', .7, 'Unique',  true)-1;
 
             [path,name_from,ext_from] = fileparts(string(imds.Files{i}));
             [~,name_to,ext_to] = fileparts(string(imds.Files{j}));

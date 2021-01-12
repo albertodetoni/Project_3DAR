@@ -22,8 +22,8 @@ for i = 1:numel(imdsTraining.Files) % for each image
 end
 
 close all;
-HiddenLayerSize = 2;
-autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, 'UseGPU', false);
+HiddenLayerSize = 4;
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, 'UseGPU', true);
 
 save('Workspace_autoenc_trained.mat');
 

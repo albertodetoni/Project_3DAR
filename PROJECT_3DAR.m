@@ -23,15 +23,16 @@ end
 
 close all;
 HiddenLayerSize = 4;
-autoenc = trainAutoencoder(SURF_features', HiddenLayerSize);
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
+    'SparsityRegularization', 1, ...
+    'L2WeightRegularization', 0.05);
 
 save('Workspace_autoenc_trained.mat');
 
 %% TESTING
 %% FEATURE EXTRACTION
 
-clc; clear all;
-load('Workspace_autoenc_trained.mat')
+clc; clear all; load('Workspace_autoenc_trained.mat');
 
 imdsFountain = imageDatastore(...
     'images\Testing\fountain-P11', 'IncludeSubfolders', true);
@@ -40,15 +41,15 @@ imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
 
-%features_fountain = FEATURES(imdsFountain, autoenc);
-features_tiso = FEATURES(imdsTiso, autoenc);
+features_fountain = FEATURES(imdsFountain, autoenc);
+%features_tiso = FEATURES(imdsTiso, autoenc);
 close all;
 
 % MATCHINGS
 clc;
 
-%MATCHINGS(imdsFountain, features_fountain);
-MATCHINGS(imdsTiso, features_tiso);
+MATCHINGS(imdsFountain, features_fountain);
+%MATCHINGS(imdsTiso, features_tiso);
 
 
 load splat
@@ -107,7 +108,6 @@ function features = FEATURES (imds, autoenc)
 
         writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
         
-        features{i} = descriptors{i};
     end
 end
 
@@ -125,7 +125,7 @@ function MATCHINGS (imds, features)
         for j=i+1:length(features)
             
             matchings = matchFeatures(features{i}, features{j}, ...
-                'MaxRatio', .7, 'Unique',  true)-1;
+                'MaxRatio', .9, 'Unique',  true)-1;
 
             [path,name_from,ext_from] = fileparts(string(imds.Files{i}));
             [~,name_to,ext_to] = fileparts(string(imds.Files{j}));

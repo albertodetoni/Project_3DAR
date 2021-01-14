@@ -40,23 +40,21 @@ save('Workspace_autoenc_trained.mat');
 
 clc; clear all; load('Workspace_autoenc_trained.mat');
 
+imdsPortello = imageDatastore(...
+    'images\Training\portelloDataset', 'IncludeSubfolders', true);
+
+imdsCastle = imageDatastore(...
+    'images\Training\castle', 'IncludeSubfolders', true);
+
 imdsFountain = imageDatastore(...
     'images\Testing\fountain-P11', 'IncludeSubfolders', true);
 
 imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
-
-features_fountain = FEATURES(imdsFountain, autoenc);
-%features_tiso = FEATURES(imdsTiso, autoenc);
-close all;
-
-% MATCHINGS
-clc;
-
-MATCHINGS(imdsFountain, features_fountain);
-%MATCHINGS(imdsTiso, features_tiso);
-
+features_portello = FEATURES(imdsPortello, autoenc);
+MATCHINGS(imdsPortello, features_portello);
+% MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
 
 load splat
 sound(y,Fs)
@@ -78,8 +76,8 @@ function features = FEATURES (imds, autoenc)
 
         A=double(descriptors{i});
 
-        Y_test = predict(autoenc, A')'; % WITH AUTOENCODER
-        %Y_test = A; % WITHOUT AUTOENCODER
+%         Y_test = predict(autoenc, A')'; % WITH AUTOENCODER
+        Y_test = A; % WITHOUT AUTOENCODER
         
         %plot of the images%%%
         imshow(images{i}); hold on;

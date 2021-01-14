@@ -23,9 +23,15 @@ end
 
 close all;
 HiddenLayerSize = 4;
-autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
-    'SparsityRegularization', 1, ...
-    'L2WeightRegularization', 0.05);
+% autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
+%     'SparsityRegularization', 0.01, ...
+%     'L2WeightRegularization', 4, ...
+%     'EncoderTransferFunction', 'satlin', ...
+%     'DecoderTransferFunction', 'purelin', ...
+%     'MaxEpochs', 400, ...
+%     'SparsityProportion', 0.1);
+
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize);
 
 save('Workspace_autoenc_trained.mat');
 
@@ -60,7 +66,7 @@ sound(y,Fs)
 function features = FEATURES (imds, autoenc)
     
     delete('features/tiso/*.txt'); delete('features/fountain/*.txt');
-    delete('features/portello/*.txt'); delete('features/castle/*.txt');
+    delete('features/portello/*.txt'); delete('features/castle/*.txt'); 
 
     for i = 1:numel(imds.Files)
        
@@ -100,7 +106,6 @@ function features = FEATURES (imds, autoenc)
         end
         
         features{i} = single(Y_test);
-        %features = features(~cellfun('isempty',features));
 
         fileID = fopen(filePath, 'w');
         fprintf(fileID, string(length(A))+' 128\n');
@@ -113,13 +118,10 @@ end
 
 
 
-
-
-
 function MATCHINGS (imds, features)
 
     delete('matchings/tiso/matchings.txt'); delete('matchings/fountain/matchings.txt');
-    delete('matchings/portello/matchings.txt'); delete('matchings/castle/matchings.txt');         
+    delete('matchings/portello/matchings.txt'); delete('matchings/castle/matchings.txt'); clc;        
     
     for i=1:length(features)-1
         for j=i+1:length(features)

@@ -22,7 +22,7 @@ for i = 1:numel(imdsTraining.Files) % for each image
 end
 
 close all;
-HiddenLayerSize = 4;
+HiddenLayerSize = 64;
 % autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, ...
 %     'SparsityRegularization', 0.01, ...
 %     'L2WeightRegularization', 4, ...
@@ -31,7 +31,7 @@ HiddenLayerSize = 4;
 %     'MaxEpochs', 400, ...
 %     'SparsityProportion', 0.1);
 
-autoenc = trainAutoencoder(SURF_features', HiddenLayerSize);
+autoenc = trainAutoencoder(SURF_features', HiddenLayerSize, 'MaxEpochs', 40);
 
 save('Workspace_autoenc_trained.mat');
 
@@ -52,9 +52,9 @@ imdsFountain = imageDatastore(...
 imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
-features_portello = FEATURES(imdsPortello, autoenc);
-MATCHINGS(imdsPortello, features_portello);
-% MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
+% features_portello = FEATURES(imdsPortello, autoenc);
+% MATCHINGS(imdsPortello, features_portello);
+ MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
 
 load splat
 sound(y,Fs)
@@ -76,8 +76,8 @@ function features = FEATURES (imds, autoenc)
 
         A=double(descriptors{i});
 
-%         Y_test = predict(autoenc, A')'; % WITH AUTOENCODER
-        Y_test = A; % WITHOUT AUTOENCODER
+        Y_test = predict(autoenc, A')'; % WITH AUTOENCODER
+%        Y_test = A; % WITHOUT AUTOENCODER
         
         %plot of the images%%%
         imshow(images{i}); hold on;
@@ -112,6 +112,8 @@ function features = FEATURES (imds, autoenc)
         writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
         
     end
+    
+    close all;
 end
 
 
@@ -125,7 +127,7 @@ function MATCHINGS (imds, features)
         for j=i+1:length(features)
             
             matchings = matchFeatures(features{i}, features{j}, ...
-                'MaxRatio', .9, 'Unique',  true)-1;
+                'MaxRatio', .9, 'Unique',  true, 'Method', 'Approximate')-1;
 
             [path,name_from,ext_from] = fileparts(string(imds.Files{i}));
             [~,name_to,ext_to] = fileparts(string(imds.Files{j}));

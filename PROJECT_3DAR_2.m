@@ -25,9 +25,7 @@ close all; clc;
 
 layers = [
     featureInputLayer(64,'Name','IN')  
-    fullyConnectedLayer(8,'Name','mid1')
-    fullyConnectedLayer(4,'Name','mid2')
-    fullyConnectedLayer(8,'Name','mid3')
+    fullyConnectedLayer(6,'Name','mid2')
     fullyConnectedLayer(64, 'Name', 'mid4')
     regressionLayer( 'Name', 'OUT')];
 

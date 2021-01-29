@@ -61,9 +61,10 @@ imdsFountain = imageDatastore(...
 imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
-% features_portello = FEATURES(imdsPortello, autoenc);
-% MATCHINGS(imdsPortello, features_portello);
- MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
+
+% MATCHINGS(imdsPortello, FEATURES(imdsPortello, autoenc));
+% MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
+MATCHINGS(imdsTiso, FEATURES(imdsTiso, autoenc));
 
 load splat
 sound(y,Fs)
@@ -86,7 +87,6 @@ function features = FEATURES (imds, autoenc)
         A=double(descriptors{i});
 
         Y_test = predict(autoenc, A); % WITH AUTOENCODER
-%         Y_test = predict(autoenc, A')'; % WITH AUTOENCODER
 %        Y_test = A; % WITHOUT AUTOENCODER
         
         %plot of the images%%%

@@ -34,8 +34,8 @@ lgraph = layerGraph(layers);
 figure; plot(lgraph);
 
 options = trainingOptions('adam', ...
-    'MaxEpochs',20, ...
-    'Shuffle','never', ...
+    'MaxEpochs',2, ...
+    'Shuffle','never', ...'Shuffle','every-epoch', ...
     'Verbose',false, ...
     'Plots','training-progress');
 
@@ -62,9 +62,12 @@ imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
 
+
 % MATCHINGS(imdsPortello, FEATURES(imdsPortello, autoenc));
-% MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
-MATCHINGS(imdsTiso, FEATURES(imdsTiso, autoenc));
+MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
+% MATCHINGS(imdsTiso, FEATURES(imdsTiso, autoenc));
+
+
 
 load splat
 sound(y,Fs)
@@ -87,7 +90,7 @@ function features = FEATURES (imds, autoenc)
         A=double(descriptors{i});
 
         Y_test = predict(autoenc, A); % WITH AUTOENCODER
-%        Y_test = A; % WITHOUT AUTOENCODER
+%         Y_test = A; % WITHOUT AUTOENCODER
         
         %plot of the images%%%
         imshow(images{i}); hold on;
@@ -164,5 +167,5 @@ function MATCHINGS (imds, features)
             
         end
     end
-
+    
 end

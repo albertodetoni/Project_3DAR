@@ -6,19 +6,23 @@ Programming languages: MATLAB/Python/C++.
 
 \section{Introduction}
 
-The experiment was firstly performed by prof. Arecchi Fortunato around 1965 and it exhibits the difference between a coherent and a thermal source. Despite the important results, the setup is quite straightforward: it consists in a laser source, an \emph{Arecchi wheel} (a reflecting sandpaper planar wheel) and a photodetector capable of collecting light via a single-mode fiber. The laser source shines on the \emph{Arecchi wheel} and reflects inside the photodetector. If the wheel is still then the photodetector ``sees'' a coherent light source, while if it is spinning then a thermal source is simulated, because of the multiple reflections from the rough surface of the sandpaper. In figure \ref{fig:setup} the setup of the experiment is graphically represented.
+\subsection{What are the descriptors}
+In computer vision, visual descriptors or image descriptors are descriptions of the visual features of the contents in images, videos, or algorithms or applications that produce such descriptions. They describe elementary characteristics such as the shape, the color, the texture or the motion, among others\footnote{\url{https://en.wikipedia.org/wiki/Visual_descriptor}, 01/02/21}. A feature detector (\emph{extractor}) is an algorithm taking an image as input and outputting a set of regions (``local features'' = ``Interest Points'' = ``Keypoints'' = ``Feature Points''). A descriptor is computed on an image region defined by a detector. The descriptor is a representation of the image function (colour, shape, ...) in the region (typically an array). Two key operations are related to feature extraction:
+\begin{itemize}
+\item Feature detection: extract the features of interest
+\item Feature description: associate a descriptor to each feature in order to distinguish from the others
+\end{itemize}
 
-% Insert images like this:
+There are many pre-defined descriptors available to the users. Some of them are reported in fig. \ref{fig:descriptors}.
+
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{images/setup.pdf}
-    \caption{Setup for the Arecchi experiment.}
-    \label{fig:setup}    
+    \includegraphics[width=0.9\textwidth]{images/Descriptors.jpg}
+    \caption{Common algorithms for feature description.}
+    \label{fig:descriptors}    
 \end{figure}
 
-The objective of the experience is to take an interval of time $T$ (a good one is around $15\mu s$) and count how many photons reached the detector (\emph{occurrences}) in about $2s$ of data collection. The histogram of the occurrences with respect to the number of photons in the time bin $T$ should follow a statistic probability in the two cases:
-\begin{itemize}
-\item \emph{still wheel}: a \emph{Poisson} distribution $\mathscr{P}(\lambda)=\dfrac{\lambda^n exp(-\lambda)}{n!}$  with $n=0,1,2...$;
-\item \emph{spinning wheel}: a \emph{Bose-Einstein} distribution $BE (\lambda)=\dfrac{1}{\lambda+1}\left(\dfrac{\lambda}{\lambda +1}\right)^n$  with $n=0,1,2...$
-\end{itemize}
-where $\lambda$ represents the mean arrival of photons in $T$.
+\subsection{What is an autoencoder}
+
+What were our choices (programming language,...) cons of using matlab as a Machine Learning tool
+The objective of the project is

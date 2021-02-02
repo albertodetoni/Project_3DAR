@@ -2,13 +2,4 @@
 
 \section{Data}
 \subsection{Dataset}
-The data of the experiment are collected in 10 files for both regimes (still and spinning wheel). Each file contains a dataset with two columns, being the first the time tags in \emph{machine time} ($\simeq 81ps$) and the other the channel, like this:\\
-\begin{center}
-\begin{tabular}{c c}
-0, & 1 \\
-18009, & 1 \\
-18835, & 1 \\
-...  & ...
-\end{tabular}
-\end{center}
-In this case there is only one channel collecting the data so the last column isn't useful. To convert the time tags from machine time to actual time it's sufficient to multiply the first column by $81ps$ obtaining the time tags in seconds. The data can be merged together by putting in column all the datasets and making sure that at each iteration the time begins where it left (for example, if the first dataset ends at $2s$ the second must begin at $2s$).
+The data of the experiment are divided into two groups of images, one used for the training of the autoencoder and another one for the testing. The images represent four buildings from different point of view and in the training group we have the Portello and the Castle images, reported in fig.ref{fig:portello} and fig.ref{fig:castle}. Instead in the group of the testing images we have the FountainP-11 and the Tiso, reported in fig.ref{fig:fountain} and fig.ref{fig:tiso}. The images must be converted into grayscale to be used in the detectSURFFeatures function.

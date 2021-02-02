@@ -35,20 +35,19 @@ figure; plot(lgraph);
 
 options = trainingOptions('adam', ...
     'MaxEpochs',2, ...
-    'Shuffle','never', ...'Shuffle','every-epoch', ...
+    'Shuffle','never', ...
     'Verbose',false, ...
     'Plots','training-progress');
 
 compressed=SURF_features;
-net = trainNetwork(SURF_features,compressed,lgraph,options);
+autoenc = trainNetwork(SURF_features,compressed,lgraph,options);
 
 save('Workspace_autoenc_trained.mat');
 
 %% TESTING
-%% FEATURE EXTRACTION
 
 clc; clear all; load('Workspace_autoenc_trained.mat');
-autoenc =net;
+
 imdsPortello = imageDatastore(...
     'images\Training\portelloDataset', 'IncludeSubfolders', true);
 

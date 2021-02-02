@@ -1,43 +1,19 @@
 %!TeX root = ../main.tex
 
-\section{Momenta Analysis}
-A statistical comparison between the theoretical and empirical model can be performed by analyzing superior orders of the distributions momenta.
-\subsection{Poisson distribution}
-The first four momenta are described as:
-\begin{align*}
-m_{1,P}=\sum_{n} \dfrac {n\cdot e^{-\lambda}\cdot \lambda^n}{n!} &\implies \lambda\\
-m_{2,P}=\sum_{n} \dfrac {(n-\lambda)^2\cdot e^{-\lambda}\cdot \lambda^n}{n!} &\implies \lambda \\
-m_{3,P}=\sum_{n} \dfrac {(n-\lambda)^3\cdot e^{-\lambda}\cdot \lambda^n}{n!} &\implies \lambda \\
-m_{4,P}=\sum_{n} \dfrac {(n-\lambda)^4\cdot e^{-\lambda}\cdot \lambda^n}{n!} &\implies \lambda+3\lambda^2 
-\end{align*}
+\section{COLMAP} \label{sec:COLMAP}
+Having all the required files the performances of the compression system can be tested on a 3D-Reconstruction software, like COLMAP (\url{https://colmap.github.io/}). This software was meant for using SIFT features (see fig. \ref{fig:descriptors}), which are heavier and more performing in terms of quality but also less robust to image transformations (which must be accounted since the images are taken with a mobile phone) and patented. A trick that can be used is to use SURF features (64 float) and faking a larger dimensionality (128 float) by adding zeros. This way COLMAP recognizes the right dimensionality of the files while using SURF features instead of SIFT. In order to start the reconstruction, COLMAP will need three things:
+\begin{enumerate}
+\item A set of images of the same scenario in different perspectives;
+\item A .txt file for each image containing the features, in the format specified in sec. \ref{sec:FEATURES}. The title of the file must be the name of the image followed by .txt (\emph{e.g: image001.jpg.txt});
+\item A .txt file containing the matchings between each image in the format specified in sec. \ref{sec:MATCHINGS}.
+\end{enumerate}
+Not having these will result in an error inside COLMAP which won't start the reconstruction.
 
-
-where $\lambda$ is the mean of the Poisson distribution and $n=0,1,2..$ . The comparison can be done by subtracting the terms on the left with the terms on the right. The results are:
-\begin{align*}
-|m_{1,P}-\lambda|& \simeq 1.0\cdot10^{-5} \\
-|m_{2,P}-\lambda|& \simeq 1.4\cdot10^{-4} \\
-|m_{3,P}-\lambda|& \simeq 2.6\cdot10^{-3} \\
-|m_{4,P}-(\lambda+3\lambda^2 )|& \simeq 4.5\cdot10^{-2}
-\end{align*}
-
-
-Values can be affected by the choice of $n$: the more $n$ increases, the more the differences become close to zero (for the calculations was set to its maximum value).
-
-\subsection{Bose-Einstein distribution}
-The first four momenta are described as:
-\begin{align*}
-m_{1,BE}=\sum_n\dfrac{n}{1+\lambda}\cdot\left(\dfrac{\lambda}{1+\lambda}\right)^n &\implies \lambda \\
-m_{2,BE}=\sum_n\dfrac{(n-\lambda)^2}{1+\lambda}\cdot\left(\dfrac{\lambda}{1+\lambda}\right)^n &\implies \lambda+\lambda^2 \\
-m_{3,BE}=\sum_n\dfrac{(n-\lambda)^3}{1+\lambda}\cdot\left(\dfrac{\lambda}{1+\lambda}\right)^n &\implies \lambda+3\lambda^2+2\lambda^3\\
-m_{4,BE}=\sum_n\dfrac{(n-\lambda)^4}{1+\lambda}\cdot\left(\dfrac{\lambda}{1+\lambda}\right)^n &\implies \lambda+10\lambda^2+18\lambda^3+9\lambda^4\\
-\end{align*}
-
-where $\lambda$ is the mean of the Bose-Einstein distribution and $n=0,1,2..$ . The comparison can be done by subtracting the terms on the left with the terms on the right. The results are:
-\begin{align*}
-|m_{1,BE}-\lambda| &\simeq 1.3\cdot10^{-9} \\
-|m_{2,BE}-(\lambda+\lambda^2)| &\simeq 9.0\cdot10^{-8} \\
-|m_{3,BE}-(\lambda+3\lambda^2+2\lambda^3)| &\simeq 6.3\cdot10^{-6} \\
-|m_{4,BE}-(\lambda+10\lambda^2+18\lambda^3+9\lambda^4)| &\simeq 4.5\cdot10^{-4}
-\end{align*}
-
-Values can be affected by the choice of $n$: the more $n$ increases, the more the differences become close to zero (for the calculations was set to its maximum value).
+\iffalse
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/2EPOCHS.jpg}
+    \caption{Training results after 2 epochs (18252 iterations).}
+    \label{fig:2epochs}    
+\end{figure}
+\fi

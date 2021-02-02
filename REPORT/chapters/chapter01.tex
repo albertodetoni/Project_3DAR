@@ -12,8 +12,7 @@ In computer vision, visual descriptors or image descriptors are descriptions of 
 \item Feature detection: extract the features of interest
 \item Feature description: associate a descriptor to each feature in order to distinguish from the others
 \end{itemize}
-
-There are many pre-defined descriptors available to the users. Some of them are reported in fig. \ref{fig:descriptors}.
+There are many pre-defined descriptors available to the users. Some of them are reported in fig.\ref{fig:descriptors}.
 
 \begin{figure}[h!]
     \centering
@@ -22,7 +21,51 @@ There are many pre-defined descriptors available to the users. Some of them are 
     \label{fig:descriptors}    
 \end{figure}
 
-\subsection{What is an autoencoder}
 
-What were our choices (programming language,...) cons of using matlab as a Machine Learning tool
-The objective of the project is
+\subsection{What is the Speeded Up Robust Features (SURF)}
+In computer vision, speeded up robust features (SURF) is a patented local feature detector and descriptor. It can be used for tasks such as object recognition, image registration, classification, or 3D reconstruction. It is partly inspired by the scale-invariant feature transform (SIFT) descriptor. The standard version of SURF is several times faster than SIFT and claimed by its authors to be more robust against different image transformations than SIFT\footnote{\url{https://https://https://en.wikipedia.org/wiki/Speeded_up_robust_features}, 01/02/21}. The SURF algorithm is based on three main parts:
+\begin{itemize}
+\item Detection: using a blob detector method based on the Hessian matrix to find feature points
+\item Description: the goal of a descriptor is to provide a unique and robust description of an image feature
+\item Matching: comparing the descriptors obtained from different images to find the matching pairs
+\end{itemize}
+
+
+
+\subsection{What is an autoencoder}
+An autoencoder is a type of artificial neural network used to learn efficient data codings in an unsupervised manner. The aim of an autoencoder is to learn a representation (encoding) for a set of data, typically for dimensionality reduction, by training the network to ignore signal “noise”. Along with the reduction side, a reconstructing side is learnt, where the autoencoder tries to generate from the reduced encoding a representation as close as possible to its original input\footnote{\url{https://https://en.wikipedia.org/wiki/Autoencoder}, 01/02/21}.
+There are two categories of autoencoder:
+\begin{itemize}
+\item Regularized autoencoders: they are divided into three types such as Sparse autoencoder (SAE), Denoising autoencoder (DAE) and Contractive autoencoder (CAE)
+\item Variational autoencoder (VAE): generative model akin to generative adversarial networks (GAN)
+\end{itemize}
+A basic autoencoder as shown in fig.\ref{fig:autoencoder}  has an internal hidden layer and it's made of two main parts which are the encoder that turns a high-dimensional input into a latent low-dimensional code, and the decoder that performs a reconstruction of the input with this latent code. It's also possible to train the autoencoder with multiple layers to exponentially reduce the computational cost of representing some functions and to exponentially decrease the amount of training data needed to learn some functions. 
+The two steps of using an autoencoder are:
+\begin{itemize}
+\item Training
+\item Testing
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/autoencoder.png}
+    \caption{Schema of a basic autoencoder.}
+    \label{fig:autoencoder}    
+\end{figure}
+
+\subsection{Development software}
+MATLAB is a proprietary multi-paradigm programming language and numeric computing environment developed by MathWorks. MATLAB allows matrix manipulations, plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages\footnote{\url{https://https://https://https://en.wikipedia.org/wiki/MATLAB}, 02/02/21}. We decided to use Matlab as Machine Learning tool because we felt more confident, it has an extensive documentation and it offers different advantages:
+\begin{itemize}
+\item Implement and test algorithms easily
+\item Develop the computational codes easily
+\item Debug easily
+\item Use a large database of built in algorithms
+\item Process still images and create simulation videos easily
+\item Symbolic computation can be easily done
+\item Call external libraries
+\item Perform extensive data analysis and visualization
+\item Develop application with graphics user interface
+\end{itemize}
+
+
+\subsection{Goal of the project}
+The objective of the project is to develop a compression strategy for local SURF descriptors using an autoencoder and perform a SfM reconstruction using COLMAP software with the obtained data. The matchings and the features must be saved in a .txt file. The autoencoder has to be trained with training data generated from a given dataset and has to be tested on another dataset. The final result should show a worse reconstruction due the compression of the data and the goal is to find a good setting for the autoencoder. 

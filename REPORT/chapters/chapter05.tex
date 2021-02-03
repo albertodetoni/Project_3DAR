@@ -1,4 +1,20 @@
 %!TeX root = ../main.tex
 
 \section{Conclusions}
-The plots and the momenta analysis display a strong similarity between the data collected and the theoretical models. The Arecchi experiment exhibits the difference between a coherent and a thermal source: the statistical description of a coherent source follows a Poisson distribution of mean $\lambda$, while a thermal source follows a Bose-Einstein distribution of parameter $\lambda$. This can be verified empirically because by reducing the time bin the less photons are collected and the Bose-Einstein distribution follows this kind of behaviour (strong peak around $0$), while the Poisson distribution tends to keep a bell-shape around the mean (like a coherent light source) and by changing $T$ all it does is shifting and spreading the ``bell''. Note that the differences between the empirical and theoretical momenta are really small: the twos can be considered approximately equal despite some error due to the small set of $n$.
+By finishing the reconstruction in COLMAP, a final result is obtained and in this case, as shown in fig.\ref{fig:fountain}, the fountain is rebuilt in a more sparse form due to the smaller amount of information provided to the software. In fact, there is a mean observations per image equal to 4751.36 and a total number of observations equal to 52256. The data are almost a third lower than those obtained with the SURF algorithm without using the compression of the descriptors. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fountain.png}
+    \caption{Fountain reconstructed with the autoencoder.}
+    \label{fig:fountain}    
+\end{figure}
+
+The fig.\ref{fig:fountain1} refers precisely o the final result without the use of the autoencoder and therefore all the features and matchings obtained by the SURF algorithm are supplied to COLMAP without regression. Comparing the two results a significantly differences are shown in the reconstruction quality of the fountain.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fountain1.png}  
+    \caption{Fountain reconstructed without the autoencoder.}
+    \label{fig:fountain1}    
+\end{figure}

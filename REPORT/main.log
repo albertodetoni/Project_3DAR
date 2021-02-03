@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.2.17)  2 FEB 2021 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.2.17)  3 FEB 2021 10:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -790,6 +790,31 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 35.
 
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen130
+\captionmargin@=\dimen131
+\captionwidth=\dimen132
+\caption@tempdima=\dimen133
+\caption@indent=\dimen134
+\caption@parindent=\dimen135
+\caption@hangindent=\dimen136
+)
+\c@caption@flags=\count115
+\c@ContinuedFloat=\count116
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: sidecap package is loaded.
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+\c@subfigure=\count117
+\c@subtable=\count118
+)
 (./mcode.sty
 -- Package: `mcode' 2.7 <2015/11/11> --
 Package: mcode 2015/11/11 2.7
@@ -799,23 +824,23 @@ Package: mcode 2015/11/11 2.7
  - automatic line breaking enabled (careful, buggy!)
  - framed listings
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count115
+\lst@mode=\count119
 \lst@gtempboxa=\box32
 \lst@token=\toks25
-\lst@length=\count116
-\lst@currlwidth=\dimen130
-\lst@column=\count117
-\lst@pos=\count118
-\lst@lostspace=\dimen131
-\lst@width=\dimen132
-\lst@newlines=\count119
-\lst@lineno=\count120
-\lst@maxwidth=\dimen133
+\lst@length=\count120
+\lst@currlwidth=\dimen137
+\lst@column=\count121
+\lst@pos=\count122
+\lst@lostspace=\dimen138
+\lst@width=\dimen139
+\lst@newlines=\count123
+\lst@lineno=\count124
+\lst@maxwidth=\dimen140
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
-\c@lstnumber=\count121
-\lst@skipnumbers=\count122
+\c@lstnumber=\count125
+\lst@skipnumbers=\count126
 \lst@framebox=\box33
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
@@ -833,56 +858,56 @@ Package: biblatex 2018/11/02 v3.12 programmable bibliographies (PK/MW)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count123
+\etb@tempcnta=\count127
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count124
+\lrq@indent=\count128
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count125
-\c@listtotal=\count126
-\c@listcount=\count127
-\c@liststart=\count128
-\c@liststop=\count129
-\c@citecount=\count130
-\c@citetotal=\count131
-\c@multicitecount=\count132
-\c@multicitetotal=\count133
-\c@instcount=\count134
-\c@maxnames=\count135
-\c@minnames=\count136
-\c@maxitems=\count137
-\c@minitems=\count138
-\c@citecounter=\count139
-\c@maxcitecounter=\count140
-\c@savedcitecounter=\count141
-\c@uniquelist=\count142
-\c@uniquename=\count143
-\c@refsection=\count144
-\c@refsegment=\count145
-\c@maxextratitle=\count146
-\c@maxextratitleyear=\count147
-\c@maxextraname=\count148
-\c@maxextradate=\count149
-\c@maxextraalpha=\count150
-\c@abbrvpenalty=\count151
-\c@highnamepenalty=\count152
-\c@lownamepenalty=\count153
-\c@maxparens=\count154
-\c@parenlevel=\count155
-\blx@tempcnta=\count156
-\blx@tempcntb=\count157
-\blx@tempcntc=\count158
-\blx@maxsection=\count159
-\blx@maxsegment@0=\count160
-\blx@notetype=\count161
-\blx@parenlevel@text=\count162
-\blx@parenlevel@foot=\count163
-\blx@sectionciteorder@0=\count164
-\blx@entrysetcounter=\count165
+\c@tabx@nest=\count129
+\c@listtotal=\count130
+\c@listcount=\count131
+\c@liststart=\count132
+\c@liststop=\count133
+\c@citecount=\count134
+\c@citetotal=\count135
+\c@multicitecount=\count136
+\c@multicitetotal=\count137
+\c@instcount=\count138
+\c@maxnames=\count139
+\c@minnames=\count140
+\c@maxitems=\count141
+\c@minitems=\count142
+\c@citecounter=\count143
+\c@maxcitecounter=\count144
+\c@savedcitecounter=\count145
+\c@uniquelist=\count146
+\c@uniquename=\count147
+\c@refsection=\count148
+\c@refsegment=\count149
+\c@maxextratitle=\count150
+\c@maxextratitleyear=\count151
+\c@maxextraname=\count152
+\c@maxextradate=\count153
+\c@maxextraalpha=\count154
+\c@abbrvpenalty=\count155
+\c@highnamepenalty=\count156
+\c@lownamepenalty=\count157
+\c@maxparens=\count158
+\c@parenlevel=\count159
+\blx@tempcnta=\count160
+\blx@tempcntb=\count161
+\blx@tempcntc=\count162
+\blx@maxsection=\count163
+\blx@maxsegment@0=\count164
+\blx@notetype=\count165
+\blx@parenlevel@text=\count166
+\blx@parenlevel@foot=\count167
+\blx@sectionciteorder@0=\count168
+\blx@entrysetcounter=\count169
 \labelnumberwidth=\skip47
 \labelalphawidth=\skip48
 \biblabelsep=\skip49
@@ -893,9 +918,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip54
 \blx@bcfin=\read1
 \blx@bcfout=\write3
-\c@mincomprange=\count166
-\c@maxcomprange=\count167
-\c@mincompwidth=\count168
+\c@mincomprange=\count170
+\c@maxcomprange=\count171
+\c@mincompwidth=\count172
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -910,84 +935,84 @@ File: apa.dbx 2018/04/02 v7.7 APA biblatex style data model
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count169
-\c@savedafterword=\count170
-\c@annotator=\count171
-\c@savedannotator=\count172
-\c@author=\count173
-\c@savedauthor=\count174
-\c@bookauthor=\count175
-\c@savedbookauthor=\count176
-\c@commentator=\count177
-\c@savedcommentator=\count178
-\c@editor=\count179
-\c@savededitor=\count180
-\c@editora=\count181
-\c@savededitora=\count182
-\c@editorb=\count183
-\c@savededitorb=\count184
-\c@editorc=\count185
-\c@savededitorc=\count186
-\c@foreword=\count187
-\c@savedforeword=\count188
-\c@holder=\count189
-\c@savedholder=\count190
-\c@introduction=\count191
-\c@savedintroduction=\count192
-\c@namea=\count193
-\c@savednamea=\count194
-\c@nameb=\count195
-\c@savednameb=\count196
-\c@namec=\count197
-\c@savednamec=\count198
-\c@translator=\count199
-\c@savedtranslator=\count266
-\c@shortauthor=\count267
-\c@savedshortauthor=\count268
-\c@shorteditor=\count269
-\c@savedshorteditor=\count270
-\c@with=\count271
-\c@savedwith=\count272
-\c@writer=\count273
-\c@savedwriter=\count274
-\c@producer=\count275
-\c@savedproducer=\count276
-\c@execproducer=\count277
-\c@savedexecproducer=\count278
-\c@director=\count279
-\c@saveddirector=\count280
-\c@labelname=\count281
-\c@savedlabelname=\count282
-\c@institution=\count283
-\c@savedinstitution=\count284
-\c@lista=\count285
-\c@savedlista=\count286
-\c@listb=\count287
-\c@savedlistb=\count288
-\c@listc=\count289
-\c@savedlistc=\count290
-\c@listd=\count291
-\c@savedlistd=\count292
-\c@liste=\count293
-\c@savedliste=\count294
-\c@listf=\count295
-\c@savedlistf=\count296
-\c@location=\count297
-\c@savedlocation=\count298
-\c@organization=\count299
-\c@savedorganization=\count300
-\c@origlocation=\count301
-\c@savedoriglocation=\count302
-\c@origpublisher=\count303
-\c@savedorigpublisher=\count304
-\c@publisher=\count305
-\c@savedpublisher=\count306
-\c@language=\count307
-\c@savedlanguage=\count308
-\c@origlanguage=\count309
-\c@savedoriglanguage=\count310
-\c@pageref=\count311
-\c@savedpageref=\count312
+\c@afterword=\count173
+\c@savedafterword=\count174
+\c@annotator=\count175
+\c@savedannotator=\count176
+\c@author=\count177
+\c@savedauthor=\count178
+\c@bookauthor=\count179
+\c@savedbookauthor=\count180
+\c@commentator=\count181
+\c@savedcommentator=\count182
+\c@editor=\count183
+\c@savededitor=\count184
+\c@editora=\count185
+\c@savededitora=\count186
+\c@editorb=\count187
+\c@savededitorb=\count188
+\c@editorc=\count189
+\c@savededitorc=\count190
+\c@foreword=\count191
+\c@savedforeword=\count192
+\c@holder=\count193
+\c@savedholder=\count194
+\c@introduction=\count195
+\c@savedintroduction=\count196
+\c@namea=\count197
+\c@savednamea=\count198
+\c@nameb=\count199
+\c@savednameb=\count266
+\c@namec=\count267
+\c@savednamec=\count268
+\c@translator=\count269
+\c@savedtranslator=\count270
+\c@shortauthor=\count271
+\c@savedshortauthor=\count272
+\c@shorteditor=\count273
+\c@savedshorteditor=\count274
+\c@with=\count275
+\c@savedwith=\count276
+\c@writer=\count277
+\c@savedwriter=\count278
+\c@producer=\count279
+\c@savedproducer=\count280
+\c@execproducer=\count281
+\c@savedexecproducer=\count282
+\c@director=\count283
+\c@saveddirector=\count284
+\c@labelname=\count285
+\c@savedlabelname=\count286
+\c@institution=\count287
+\c@savedinstitution=\count288
+\c@lista=\count289
+\c@savedlista=\count290
+\c@listb=\count291
+\c@savedlistb=\count292
+\c@listc=\count293
+\c@savedlistc=\count294
+\c@listd=\count295
+\c@savedlistd=\count296
+\c@liste=\count297
+\c@savedliste=\count298
+\c@listf=\count299
+\c@savedlistf=\count300
+\c@location=\count301
+\c@savedlocation=\count302
+\c@organization=\count303
+\c@savedorganization=\count304
+\c@origlocation=\count305
+\c@savedoriglocation=\count306
+\c@origpublisher=\count307
+\c@savedorigpublisher=\count308
+\c@publisher=\count309
+\c@savedpublisher=\count310
+\c@language=\count311
+\c@savedlanguage=\count312
+\c@origlanguage=\count313
+\c@savedoriglanguage=\count314
+\c@pageref=\count315
+\c@savedpageref=\count316
 \shorthandwidth=\skip55
 \shortjournalwidth=\skip56
 \shortserieswidth=\skip57
@@ -1003,522 +1028,4 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshortauthorwidth=\skip67
 \localshorteditorwidth=\skip68
 Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2018/11/02 v3.12 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2018/11/02 v3.12 biblatex compatibility (PK/MW)
-\c@textcitecount=\count313
-\c@textcitetotal=\count314
-\c@textcitemaxnames=\count315
-\c@biburlnumpenalty=\count316
-\c@biburlucpenalty=\count317
-\c@biburllcpenalty=\count318
-\c@smartand=\count319
-)
-Package biblatex Info: Trying to load bibliography style 'apa'...
-Package biblatex Info: ... file 'apa.bbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex-apa/apa.bbx
-File: apa.bbx 2018/04/02 v7.7 APA biblatex references style
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2018/11/02 v3.12 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count320
-\c@bbx:relatedtotal=\count321
-))
-Package biblatex Info: Trying to load citation style 'apa'...
-Package biblatex Info: ... file 'apa.cbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex-apa/apa.cbx
-File: apa.cbx 2018/04/02 v7.7 APA biblatex citation style
-Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
- overwriting.
-Package biblatex Info: Delimiter 'nameyeardelim' in context 'textcite' already 
-defined, overwriting.
-Package biblatex Info: Delimiter 'andothersdelim' in context '' already defined
-, overwriting.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\fullcite'.
-Package biblatex Info: Redefining '\citeyear'.
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\citeauthor'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 57.
-Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
-Package biblatex Info: ... file 'english-apa.lbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex-apa/english-apa.lbx
-File: english-apa.lbx 2018/04/02 v7.7 APA biblatex localisation
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load language 'american' -> 'american-apa'...
-Package biblatex Info: ... file 'american-apa.lbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex-apa/american-apa.lbx
-File: american-apa.lbx 2018/04/02 v7.7 APA biblatex localisation
-Package biblatex Info: Trying to load language 'american'...
-Package biblatex Info: ... file 'american.lbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/lbx/american.lbx
-File: american.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
-))))
-\@quotelevel=\count322
-\@quotereset=\count323
-
-(./main.aux)
-\openout1 = `main.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 66.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 66.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/mathdesign/mdacmr.fd
-File: mdacmr.fd 
-)
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Try loading font information for T1+fav on input line 66.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/arev/t1fav.fd
-File: t1fav.fd 2006/05/30 Fontinst v1.929 font definitions for T1/fav.
-)
-(/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
-\scratchdimen=\dimen134
-\scratchbox=\box35
-\nofMPsegments=\count325
-\nofMParguments=\count326
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count327
-\MPscratchDim=\dimen135
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
-\everyMPtoPDFconversion=\toks27
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=12.0pt
-* \footskip=30.0pt
-* \marginparwidth=44.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/ms/ragged2e.sty
-Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/ms/everysel.sty
-Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
-
-ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 126.
-)
-\CenteringLeftskip=\skip69
-\RaggedLeftLeftskip=\skip70
-\RaggedRightLeftskip=\skip71
-\CenteringRightskip=\skip72
-\RaggedLeftRightskip=\skip73
-\RaggedRightRightskip=\skip74
-\CenteringParfillskip=\skip75
-\RaggedLeftParfillskip=\skip76
-\RaggedRightParfillskip=\skip77
-\JustifyingParfillskip=\skip78
-\CenteringParindent=\skip79
-\RaggedLeftParindent=\skip80
-\RaggedRightParindent=\skip81
-\JustifyingParindent=\skip82
-)
-\AtBeginShipoutBox=\box36
-Package hyperref Info: Link coloring ON on input line 66.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
-)
-\c@section@level=\count330
-)
-LaTeX Info: Redefining \ref on input line 66.
-LaTeX Info: Redefining \pageref on input line 66.
-LaTeX Info: Redefining \nameref on input line 66.
-
-(./main.out) (./main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
-
-\c@lstlisting=\count331
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `main.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
-Package biblatex Info: Reference section=0 on input line 66.
-Package biblatex Info: Reference segment=0 on input line 66.
-(./chapters/titlepage.tex
-<images/logo.png, id=60, 74.87172pt x 21.681pt>
-File: images/logo.png Graphic file (type png)
-<use images/logo.png>
-Package pdftex.def Info: images/logo.png  used on input line 9.
-(pdftex.def)             Requested size: 375.80544pt x 108.8642pt.
-LaTeX Font Info:    Font shape `T1/fav/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/fav/b/n' tried instead on input line 13.
-LaTeX Font Info:    Try loading font information for OT1+zavm on input line 20.
-
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/arev/ot1zavm.fd
-File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
-)
-LaTeX Font Info:    Try loading font information for OML+zavm on input line 20.
-
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/arev/omlzavm.fd
-File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
-)
-LaTeX Font Info:    Try loading font information for OMS+zavm on input line 20.
-
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/arev/omszavm.fd
-File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
-)
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 20
-.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
-File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
-)
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 20.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 20.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 20.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 20.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 20.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 20.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 20
-.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
-File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
-)
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 20.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 20.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 20.
-LaTeX Font Info:    Try loading font information for U+zavm on input line 20.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/arev/uzavm.fd
-File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
-)
-LaTeX Font Info:    Font shape `T1/fav/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/fav/b/n' tried instead on input line 25.
- [1
-
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
-s/logo.png>])
-(./chapters/chapter01.tex
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 4.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 4.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 4.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 4.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 4.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 4.
-LaTeX Font Info:    Font shape `T1/fav/bx/n' in size <12> not available
-(Font)              Font shape `T1/fav/b/n' tried instead on input line 4.
-
-Overfull \hbox (26.52858pt too wide) in paragraph at lines 3--6
-\T1/fav/m/n/12 github . com / openMVG / SfM _ quality _ evaluation / tree / mas
-ter / Benchmarking _ Camera _
- []
-
-
-Overfull \hbox (43.8046pt too wide) in paragraph at lines 3--6
-\T1/fav/m/n/12 Calibration _ 2008$[][] and [][]$http : / / www . dei . unipd . 
-it / ~sim1mil / materiale / 3Drecon/$[][]). Soft-ware
- []
-
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.29605pt on input line 10.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 10.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.29605pt on input line 10.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 10.
-
-Overfull \hbox (42.16061pt too wide) in paragraph at lines 10--11
-\T1/fav/m/n/12 ap-pli-ca-tions that pro-duce such de-scrip-tions. They de-scrib
-e el-e-men-tary char-ac-ter-is-tics
- []
-
-LaTeX Font Info:    Try loading font information for TS1+fav on input line 12.
-LaTeX Font Info:    No file TS1fav.fd. on input line 12.
-
-LaTeX Font Warning: Font shape `TS1/fav/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 12.
-
-<images/Descriptors.jpg, id=75, 840.13875pt x 362.85562pt>
-File: images/Descriptors.jpg Graphic file (type jpg)
-<use images/Descriptors.jpg>
-Package pdftex.def Info: images/Descriptors.jpg  used on input line 19.
-(pdftex.def)             Requested size: 422.77664pt x 182.59561pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (6.59807pt too wide) in paragraph at lines 26--27
-\T1/fav/m/n/12 In com-puter vi-sion, speeded up ro-bust fea-tures (SURF) is a l
-o-cal fea-ture de-tec-tor
- []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.28 \item D
-            etection: using a blob detector method based on the Hessian matr...
-[1]
-Overfull \hbox (7.07529pt too wide) in paragraph at lines 39--40
-[]\T1/fav/m/n/12 Regularized au-toen-coders: they are di-vided into three types
- such as Sparse
- []
-
-
-Overfull \hbox (29.74239pt too wide) in paragraph at lines 39--40
-\T1/fav/m/n/12 au-toen-coder (SAE), De-nois-ing au-toen-coder (DAE) and Con-tra
-c-tive au-toen-coder
- []
-
-
-Overfull \hbox (29.92328pt too wide) in paragraph at lines 40--41
-[]\T1/fav/m/n/12 Variational au-toen-coder (VAE): gen-er-a-tive model akin to g
-en-er-a-tive ad-ver-sar-ial
- []
-
-[2 <./images/Descriptors.jpg>]
-<images/autoencoder.png, id=97, 105.996pt x 96.36pt>
-File: images/autoencoder.png Graphic file (type png)
-<use images/autoencoder.png>
-Package pdftex.def Info: images/autoencoder.png  used on input line 50.
-(pdftex.def)             Requested size: 187.89914pt x 170.83504pt.
-
-Overfull \hbox (56.71568pt too wide) in paragraph at lines 56--57
-\T1/fav/m/n/12 com-put-ing en-vi-ron-ment de-vel-oped by Math-Works. MAT-LAB al
--lows ma-trix ma-nip-u-la-tions,
- []
-
-
-Overfull \hbox (3.0206pt too wide) in paragraph at lines 56--57
-\T1/fav/m/n/12 de-cided to use Mat-lab as Ma-chine Learn-ing tool be-cause we f
-elt more con-fi-dent,
- []
-
-[3 <./images/autoencoder.png>]) (./chapters/chapter02.tex)
-(./chapters/chapter03.tex
-<images/Still_Wheel.pdf, id=109, 574.145pt x 405.515pt>
-File: images/Still_Wheel.pdf Graphic file (type pdf)
-<use images/Still_Wheel.pdf>
-Package pdftex.def Info: images/Still_Wheel.pdf  used on input line 7.
-(pdftex.def)             Requested size: 422.77664pt x 298.60991pt.
-<images/Spinning_Wheel.pdf, id=110, 573.14125pt x 405.515pt>
-File: images/Spinning_Wheel.pdf Graphic file (type pdf)
-<use images/Spinning_Wheel.pdf>
-Package pdftex.def Info: images/Spinning_Wheel.pdf  used on input line 13.
-(pdftex.def)             Requested size: 422.77664pt x 299.12967pt.
- [4] [5 <./images/Still_Wheel.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-<images/Still_Wheel_30.pdf, id=155, 574.145pt x 405.515pt>
-File: images/Still_Wheel_30.pdf Graphic file (type pdf)
-<use images/Still_Wheel_30.pdf>
-Package pdftex.def Info: images/Still_Wheel_30.pdf  used on input line 22.
-(pdftex.def)             Requested size: 375.80544pt x 265.43172pt.
-<images/Spinning_Wheel_30.pdf, id=156, 573.14125pt x 405.515pt>
-File: images/Spinning_Wheel_30.pdf Graphic file (type pdf)
-<use images/Spinning_Wheel_30.pdf>
-Package pdftex.def Info: images/Spinning_Wheel_30.pdf  used on input line 28.
-(pdftex.def)             Requested size: 375.80544pt x 265.8958pt.
-[6 <./images/Spinning_Wheel.pdf>]) (./chapters/chapter04.tex [7 <./images/Still
-_Wheel_30.pdf> <./images/Spinning_Wheel_30.pdf>]
-Overfull \hbox (11.26468pt too wide) in paragraph at lines 24--25
-\T1/fav/m/n/12 the dif-fer-ences be-come close to zero (for the cal-cu-la-tions
- was set to its max-i-mum
- []
-
-[8])
-Overfull \hbox (11.26468pt too wide) in paragraph at lines 43--102
-\T1/fav/m/n/12 the dif-fer-ences be-come close to zero (for the cal-cu-la-tions
- was set to its max-i-mum
- []
-
-(./chapters/chapter05.tex)
-Overfull \hbox (7.2206pt too wide) in paragraph at lines 4--105
-\T1/fav/m/n/12 the-o-ret-i-cal mo-menta are re-ally small: the twos can be con-
-sid-ered ap-prox-i-mately
- []
-
-(./chapters/chapter06.tex [9]
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 49.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 49.
- [10] [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
- (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 40A311A7452B5380B20630D1DB071842;857.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
- ) 
-Here is how much of TeX's memory you used:
- 17021 strings out of 492616
- 273109 string characters out of 6129481
- 830778 words of memory out of 5000000
- 20423 multiletter control sequences out of 15000+600000
- 79771 words of font info for 144 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 47i,10n,49p,978b,3866s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}{/usr/lo
-cal/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/loc
-al/texlive/2019/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}{/usr/local/texlive
-/2019/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2019/texm
-f-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/texmf-dist/fonts/ty
-pe1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
-e1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
-ype1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2019/texmf-dist/fonts/t
-ype1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2019/texmf-dist/f
-onts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2019/texmf-
-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2019/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on main.pdf (13 pages, 267207 bytes).
-PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 479 compressed objects within 5 object streams
- 209 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package biblatex Info: ... file 'blx-compat.def' foun

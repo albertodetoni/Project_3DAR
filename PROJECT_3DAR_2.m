@@ -61,15 +61,9 @@ imdsTiso = imageDatastore(...
     'images\Testing\tisoDataset', 'IncludeSubfolders', true);
 
 
+% MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
+MATCHINGS(imdsTiso, FEATURES(imdsTiso, autoenc));
 
-% MATCHINGS(imdsPortello, FEATURES(imdsPortello, autoenc));
-MATCHINGS(imdsFountain,  FEATURES(imdsFountain, autoenc));
-% MATCHINGS(imdsTiso, FEATURES(imdsTiso, autoenc));
-
-
-
-load splat
-sound(y,Fs)
 
 %% FUNCTIONS
 
@@ -103,16 +97,20 @@ function features = FEATURES (imds, autoenc)
 
         [path,name,ext] = fileparts(string(imds.Files{i}));
         if contains(path,'fountain','IgnoreCase',true)
-            filePath = 'features/fountain/' + string(name)+string(ext) +'.txt';
+            filePath = 'features/fountain/' + string(name)+string(ext) ...
+                +'.txt';
             
         elseif contains(path,'tiso','IgnoreCase',true)
-            filePath = 'features/tiso/' + string(name)+string(ext) +'.txt';
+            filePath = 'features/tiso/' + string(name)+string(ext) ...
+                +'.txt';
             
         elseif contains(path,'portello','IgnoreCase',true)
-            filePath = 'features/portello/' + string(name)+string(ext) +'.txt';
+            filePath = 'features/portello/' + string(name)+string(ext) ...
+                +'.txt';
             
         elseif contains(path,'castle','IgnoreCase',true)
-            filePath = 'features/castle/' + string(name)+string(ext) +'.txt';
+            filePath = 'features/castle/' + string(name)+string(ext) ...
+                +'.txt';
         end
         
         features{i} = single(Y_test);
@@ -121,7 +119,8 @@ function features = FEATURES (imds, autoenc)
         fprintf(fileID, string(length(A))+' 128\n');
         fclose(fileID);
 
-        writematrix(A, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
+        writematrix(A, filePath, 'WriteMode', 'append', ...
+            'Delimiter', 'space');
         
     end
     
@@ -132,8 +131,10 @@ end
 
 function MATCHINGS (imds, features)
 
-    delete('matchings/tiso/matchings.txt'); delete('matchings/fountain/matchings.txt');
-    delete('matchings/portello/matchings.txt'); delete('matchings/castle/matchings.txt'); clc;        
+    delete('matchings/tiso/matchings.txt'); 
+    delete('matchings/fountain/matchings.txt');
+    delete('matchings/portello/matchings.txt');
+    delete('matchings/castle/matchings.txt'); clc;        
     
     for i=1:length(features)-1
         for j=i+1:length(features)
@@ -154,12 +155,14 @@ function MATCHINGS (imds, features)
                 filePath = 'matchings/portello/matchings.txt';
             end
 
-            title = string(name_from)+string(ext_from) +' '+ string(name_to)+string(ext_to) + '\n';
+            title = string(name_from)+string(ext_from) +' '+ ...
+                string(name_to)+string(ext_to) + '\n';
 
             fileID = fopen(filePath, 'a');
             fprintf(fileID, title);
 
-            writematrix(matchings, filePath, 'WriteMode', 'append', 'Delimiter', 'space');
+            writematrix(matchings, filePath, 'WriteMode', 'append', ...
+                'Delimiter', 'space');
 
             fprintf(fileID, '\n');
             fclose(fileID);

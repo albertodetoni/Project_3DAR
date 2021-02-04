@@ -30,7 +30,7 @@ The autoencoder is then succesfully trained (using the function ``trainNetwork''
 \subsection{Testing}
 For the phase of testing the image datasets must be loaded separately (one for each building). To be clearer, this section simply called two functions, one for the features extraction, and one for the matchings calculations. This was done because COLMAP requires specific type of files in order to perform a reconstruction (will be better explained in sec. \ref{sec:COLMAP}).
 
-\subsubsection{function FEATURES} \label{sec:FEATURES}
+\subsubsection{Function FEATURES} \label{sec:FEATURES}
 This function aims to reconstruct the features of each image with the autoencoder and the original ones in a .txt file for each image in the form ``location\_x location\_y scale orientation'' followed by 128 zeros since COLMAP works with SIFT features, which are of that size.
 The workflow of the function is the following:
 \begin{itemize}
@@ -50,7 +50,7 @@ where $N$ is the number of features.
 \end{enumerate} 
 \end{itemize}
 
-\subsubsection{function MATCHINGS} \label{sec:MATCHINGS}
+\subsubsection{Function MATCHINGS} \label{sec:MATCHINGS}
 The function, given in input the image datastore considered and the features (compressed or not) matches the features of each couple of image $i,j$. To avoid repetitions ($i,j$ and $j,i$ have the same matchings) the MATLAB function ``matchFeatures'' is called for every $i,j$ for $i$ going from 1 to the last feature -1 and $j$ going from $i+1$ to the last feature. The matchings are all stacked in a single .txt file of the form:
 \begin{align*}
 & image0.jpg\ image1.jpg \\

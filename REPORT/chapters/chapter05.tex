@@ -2,19 +2,19 @@
 
 
 \section{Conclusions}
-By performing a reconstruction in COLMAP, a final result is obtained and in this case, as shown in fig. \ref{fig:fountaintrue} and \ref{fig:tisotrue}, the fountain is rebuilt in a more sparse form due to the smaller amount of information provided to the software. In fact, from the statistics, there is a mean of observations per image equal to 4751.36 and a total number of observations equal to 52256. The data are almost a third lower than those obtained with the SURF algorithm without using the compression of the descriptors. Fig. \ref{fig:fountainautoenc} and \ref{fig:tisoautoenc} refers precisely to the final result without the use of the autoencoder and therefore all the features and matchings obtained by the SURF algorithm are supplied to COLMAP without regression. Comparing the two results, significant differences are visible in the reconstruction quality of the fountain.
+By performing a reconstruction in COLMAP, a final result is obtained and in this case, as shown in fig. \ref{fig:fountaintrue} and \ref{fig:tisotrue}, the fountain and the building are rebuilt in a more sparse form due to the smaller amount of information provided to the software. Fig. \ref{fig:fountainautoenc} and \ref{fig:tisoautoenc} refers precisely to the final result without the use of the autoencoder and therefore all the features and matchings obtained by the SURF algorithm are supplied to COLMAP without regression. Comparing the two results, significant differences are visible in the reconstruction quality of the subjects.
 
 
 \begin{figure}[H]
      \centering
-     \begin{subfigure}[b]{.5\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{images/fountainautoenc.png}  
 		\caption{\centering Fountain reconstructed with the autoencoder.}
 	    	\label{fig:fountainautoenc} 
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{0.49\textwidth}
+     \begin{subfigure}[b]{0.48\textwidth}
 		\centering
     		\includegraphics[width=\textwidth]{images/fountaintrue.png}
 		\caption{\centering Fountain reconstructed without the autoencoder.}
@@ -27,14 +27,14 @@ By performing a reconstruction in COLMAP, a final result is obtained and in this
 
 \begin{figure}[H]
      \centering
-          \begin{subfigure}[b]{0.5\textwidth}
+          \begin{subfigure}[b]{0.48\textwidth}
 		\centering
     		\includegraphics[width=\textwidth]{images/tisoautoenc.png}
 		\caption{\centering Tiso reconstructed with the autoencoder.}
 		\label{fig:tisoautoenc}   
      \end{subfigure}
      \hfill
-     \begin{subfigure}[b]{.49\textwidth}
+     \begin{subfigure}[b]{.48\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{images/tisotrue.png}  
 		\caption{\centering Tiso reconstructed without the autoencoder.}
@@ -44,5 +44,46 @@ By performing a reconstruction in COLMAP, a final result is obtained and in this
         \label{fig:Tiso3D}
 \end{figure}
 
+From the parameters obtained after the reconstruction, reported in the table \ref{table:result} and regarding the Fountain-P11 dataset, there is a mean observations per image equal to 4751.36 and a total number of observations equal to 52256, in case of using the compression strategy. The data are almost a third lower than those obtained with the SURF algorithm without using the autoencoder for these two parameters. Also the other parameters have substantial differences such as the number of points that is half between the compared data.
 
-This type of compression can be useful in environments where the quality of reconstruction is not important, for example in object detection, where is not crucial to exactly reconstruct the object with respect to the detection result ``true/false''. In can be seen from the compressed images that the edges of the objects are mostly preserved while straight planes are ``thinned out'', i.e. represented with less points.
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c| } 
+\hline
+\textbf{Parameters} & \textbf{No autoencoder} & \textbf{Autoencoder} \\ [0.5ex]
+\hline
+ Cameras & 11 & 11 \\ [0.5ex]
+ Images & 11 & 11 \\ [0.5ex]
+ Points & 30620 & 14674 \\ [0.5ex]
+ Observations & 139909 & 52265 \\ [0.5ex]
+ Mean track length & 4.5692 & 3.56174 \\ [0.5ex]
+ Mean observations per image & 12791 & 4751.36 \\ [0.5ex]
+ Mean reprojection error & 0.49785 & 0.428602 \\ [0.5ex]
+ \hline
+\end{tabular}
+ \caption{Results comparison table for Fountain-P11.}
+ \label{table:result}
+\end{table}
+
+The fig.\ref{fig:matrix} reported the difference between the match matrix in case of using the regression of the data or not and shows the quality of the matchings in the reconstruction process in COLMAP.
+
+\begin{figure}[H]
+     \centering
+          \begin{subfigure}[b]{0.45\textwidth}
+		\centering
+    		\includegraphics[width=\textwidth]{images/matrix.png}
+		\caption{\centering Match matrix without the autoencoder.}
+		\label{fig:matrix1}   
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/matrixautoenc.png}  
+		\caption{\centering Match matrix with the autoencoder.}
+	    	\label{fig:matrixautoenc} 
+     \end{subfigure}
+        \caption{Match matrix comparison.}
+        \label{fig:matrix}
+\end{figure}
+
+This type of compression is a lossy compression which leads to the loss of part of the original information during the compression/decompression phase of the data. It can be useful in environments where the quality of reconstruction is not important, for example in object detection, where is not crucial to exactly reconstruct the object with respect to the detection result ``true/false''. It can be seen from the compressed images that the edges of the objects are mostly preserved while straight planes are ``thinned out'', i.e. represented with less points.

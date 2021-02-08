@@ -9,14 +9,14 @@ The images from the training set are loaded into a single image datastore. After
 \item Extract the features (descriptors) using the function ``extractFeatures''. In this case they are represented as a vector of $64$ columns and $N$ rows;
 \item Stack vertically the descriptors of each image in a single matrix.
 \end{enumerate}
-The result is a big matrix containing all the descriptors for each image in column. The autoencoder has been built using the function ``layerGraph'', which requires in input a vector ``layers'' containing the structure of the Neural Network. For this purpose, we chose the following three-layer structure:
+The result is a big matrix containing all the descriptors for each image in column. For the next step the autoencoder has been built using the function ``layerGraph'', which requires in input a vector ``layers'' containing the structure of the Neural Network. For this purpose, we chose the following three-layer structure:
 \begin{itemize}
 \item an input layer that receives features of dimension 64 (using \\ ``featureInputLayer(64)'');
 \item two fully connected layers of dimension 6 and 64 (using ``fullyConnectedLayer(6)'' and ``fullyConnectedLayer(64)''), the second one having dimension 64 as will work as output layer;
 \item a regression layer that will predict the reconstructed values (using \\ ``regressionLayer'').
 \end{itemize}
 After some testing, we found out that for the inside layer a dimension of $4$ was too strict (The reconstructed values were too compressed, i.e. too far from the input ones) while for $8$ they were too close to the input ones, so we opted for the compromise of $6$.
-Regarding the training options, we decided to use an \emph{adam} (Adaptive Moment Estimation) optimizer and a maximum number of epochs of 2, since even after one epoch the training loss was pretty stable around $5\%$ (fig. \ref{fig:2epochs}).
+Regarding the training options, we decided to use an \emph{adam} (Adaptive Moment Estimation) optimizer and a maximum number of epochs of 2, since even after one epoch the training loss was pretty stable around $5\%$ (fig. \ref{fig:2epochs}). Training the autoencoder for a longer period of time could result in a better performance.
 
 \begin{figure}[H]
     \centering
@@ -28,7 +28,7 @@ Regarding the training options, we decided to use an \emph{adam} (Adaptive Momen
 The autoencoder is then succesfully trained (using the function ``trainNetwork'') in order to be ready to be used for the testing phase. A useful trick in order to fasten up the operation of testing and not doing everytime the training (which could require some time if the number of epochs is increased) is to save the workspace at the end of the training section and load it at the beginning of the testing one, so that everytime that section is called the autoencoder will remain trained just like it was the first time.
 
 \subsection{Testing}
-For the phase of testing the image datasets must be loaded separately (one for each building). To be clearer, this section simply called two functions, one for the features extraction, and one for the matchings calculations. This was done because COLMAP requires specific type of files in order to perform a reconstruction (will be better explained in sec. \ref{sec:COLMAP}).
+For the phase of testing the image datasets must be loaded separately (one for each architecture). To be clearer, this section simply called two functions, one for the features extraction, and one for the matchings calculations. This was done because COLMAP requires specific type of files in order to perform a reconstruction (will be better explained in sec. \ref{sec:COLMAP}).
 
 \subsubsection{Function FEATURES} \label{sec:FEATURES}
 This function aims to reconstruct the features of each image with the autoencoder and the original ones in a .txt file for each image in the form ``location\_x location\_y scale orientation'' followed by 128 zeros since COLMAP works with SIFT features, which are of that size.
